@@ -108,8 +108,10 @@ async function startServer(port) {
     });
     
     // Timeout after 10 seconds
+    // Timeout after 10 seconds
     setTimeout(() => {
       if (!serverReady) {
+        server.kill();
         reject(new Error('Server failed to start within 10 seconds'));
       }
     }, 10000);
